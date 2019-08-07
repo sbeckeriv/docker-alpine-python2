@@ -16,4 +16,4 @@ RUN echo "#!/bin/sh\n\n/usr/sbin/crond -f -l 8" > entry.sh
 RUN chmod 755 entry.sh
 RUN /usr/bin/crontab crontab.txt
 
-CMD ["entry.sh"]
+CMD ["/app/entry.sh"]
