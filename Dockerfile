@@ -14,5 +14,8 @@ RUN echo "#!/usr/bin/env python\n# encoding: utf-8\napi_secret = '${api_key}'\na
 RUN echo "/5 * * * * cd app && gandi-live-dns.py >/dev/null 2>&1" > /app/crontab.txt
 RUN echo "#!/bin/sh\n\n/usr/sbin/crond -f -l 8" > /app/entry.sh
 RUN chmod 755 /app/entry.sh
+RUN echo 'ping localhost &' > /bootstrap.sh
+RUN echo 'sleep infinity' >> /bootstrap.sh
+RUN chmod +x /bootstrap.sh
 
-CMD ["cd app && ./entry.sh"]
+CMD /bootstrap.sh
