@@ -18,7 +18,7 @@ RUN echo "domain = '#{$domain}'" >> config.py
 RUN echo "subdomains = [${subdomains}]" >> config.py
 RUN echo "ttl = '300'" >> config.py
 RUN echo "ifconfig = 'http://ifconfig.me/ip'" >> config.py
-
+RUN cp config.py src/config.py
 
 
 
