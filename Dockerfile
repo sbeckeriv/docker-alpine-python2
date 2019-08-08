@@ -1,8 +1,8 @@
-ARG api_key
-ARG domain
-ARG subdomains
-ARG ttl=300
-ARG checker=http://ifconfig.me/ip
+ENV api_key
+ENV domain
+ENV subdomains
+ENV ttl=300
+ENV checker=http://ifconfig.me/ip
 
 FROM jfloff/alpine-python:2.7
 
