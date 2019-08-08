@@ -31,4 +31,5 @@ RUN echo 'ping localhost &' > /bootstrap.sh
 RUN echo 'sleep 100000' >> /bootstrap.sh
 RUN chmod +x /bootstrap.sh
 
-CMD /app/entry.sh
+CMD /bootstrap.sh
+
