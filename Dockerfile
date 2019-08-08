@@ -18,11 +18,10 @@ RUN echo "domain = '#{$domain}'" >> config.py
 RUN echo "subdomains = [${subdomains}]" >> config.py
 RUN echo "ttl = '300'" >> config.py
 RUN echo "ifconfig = 'http://ifconfig.me/ip'" >> config.py
-RUN cp config.py src/config.py
+RUN cp config.py src/
 
 
-
-RUN echo "/5 * * * * cd app && gandi-live-dns.py >/dev/null 2>&1" > /app/crontab.txt
+RUN echo "/5 * * * * cd app/src && gandi-live-dns.py >/dev/null 2>&1" > /app/crontab.txt
 RUN echo "#!/bin/sh" > /app/entry.sh
 RUN echo "/usr/sbin/crond -f -l 8" >> /app/entry.sh
 
