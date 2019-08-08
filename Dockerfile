@@ -23,7 +23,7 @@ RUN echo "ifconfig = '${checker}'" >> config.py
 
 
 RUN echo "/5 * * * * cd app && gandi-live-dns.py >/dev/null 2>&1" > /app/crontab.txt
-RUN echo "#!/bin/sh\n\n/usr/sbin/crond -f -l 8" > /app/entry.sh
+RUN echo "#!/bin/sh" > /app/entry.sh
 RUN echo "/usr/sbin/crond -f -l 8" >> /app/entry.sh
 
 RUN chmod 755 /app/entry.sh
@@ -31,5 +31,5 @@ RUN echo 'ping localhost &' > /bootstrap.sh
 RUN echo 'sleep 100000' >> /bootstrap.sh
 RUN chmod +x /bootstrap.sh
 
-CMD /bootstrap.sh
+CMD ./entry.sh
 
