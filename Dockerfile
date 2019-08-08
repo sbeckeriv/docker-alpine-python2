@@ -15,7 +15,7 @@ RUN echo "# encoding: utf-8" >> config.py
 RUN echo "api_secret = '${api_key}'" >> config.py
 RUN echo "api_endpoint = 'https://dns.api.gandi.net/api/v5'" >> config.py
 RUN echo "domain = '#{domain}'" >> config.py
-RUN echo "subdomains = [${subdomains}]" >>> config.py
+RUN echo "subdomains = [${subdomains}]" >> config.py
 RUN echo "ttl = '${ttl}" >> config.py
 RUN echo "ifconfig = '${checker}'" >> config.py
 
